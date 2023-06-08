@@ -71,17 +71,13 @@ negative = () => {
 //  Operator-Function
 
 appendOperator = (operator) => {
-  if (
-    lastOperator === "" ||
-    lastOperator === "=" ||
-  ) {
+  if (lastOperator === "" || lastOperator === "=") {
     screen += operator;
     lastOperator = operator;
   } else if (!/[\+\-\*\/]$/.test(screen)) {
     screen += operator;
     lastOperator = operator;
-  }  
-  else {
+  } else {
     screen = screen.slice(0, -1) + operator;
     lastOperator = operator;
   }
