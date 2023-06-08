@@ -74,11 +74,14 @@ appendOperator = (operator) => {
   if (
     lastOperator === "" ||
     lastOperator === "=" ||
-    lastOperator === deleteItem()
   ) {
     screen += operator;
     lastOperator = operator;
-  } else {
+  } else if (!/[\+\-\*\/]$/.test(screen)) {
+    screen += operator;
+    lastOperator = operator;
+  }  
+  else {
     screen = screen.slice(0, -1) + operator;
     lastOperator = operator;
   }
